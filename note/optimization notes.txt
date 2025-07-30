@@ -1,0 +1,6 @@
+DO THIS FOR EVERY TASK
+
+1. query reformulation before retrieval
+- add context, give examples, 
+
+use sqllite for memory persistence

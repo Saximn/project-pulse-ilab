@@ -1,0 +1,42 @@
+use hierarchical chunking
+
+do 2 searches: semantic and specific keywords
+
+consider in-model fine-tuned memory (lora finetune)
+Vector Memory with Long-Term Index
+Key-Value or Index-Organized Memory
+Metadata-Based Recall
+Conversation (Short-Term) Memory
+Feedback Loops and Continuous Learning
+
+For immediate needs, rely on retrieval + conversation memory
+
+start building a longer-term knowledge base of Q&As and summaries
+
+Always have the retrieval as a safety net since it’s ground truth
+
+One cool pattern is using Query Transformers – you can have LlamaIndex modify the user query before vector search (for instance, prepend certain keywords if a filter is triggered). Another is Response Synthesis strategies: stuff vs map-reduce vs refine – which determine how retrieved chunks are combined by the LLM to form an answer. For very large answers (e.g., “Give me a detailed report on X from all projects”), a refine approach might work: have the LLM generate an answer from the first chunk, then feed that answer and the next chunk to refine further, and so on
+
+do llmamaparse for parsing docs
+
+
+1. add memory
+2. can upload files: pdf, ppt, excel
+3. make more human-like response
+
+1. add memory:
+    - langgraph user and thread InMemorySaver with sqllite/postgresql
+    - add project memory
+    - system prompts in nodes
+2. upload files:
+    - change into vlm-based chunking
+    - metadata for each docs (name, type (guidebook or dataset))
+
+todo:
+    - agents not only rely on PMBOK for knowledgej
+    - analyze: 
+    - simple: agents analyze monthly status, month-to-month, what differences, and what action to take | read & collect
+    - predict and evaluate. do risk identification and mitigation (with full data)
+        - if plan longer than 2%, if procurement is the source of issue, then analyze the procurement
+    - month report includes: product description/charter, monthly status, sample projects
+    - doc id: name, date
